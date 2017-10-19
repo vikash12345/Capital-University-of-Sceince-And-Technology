@@ -6,13 +6,24 @@ require 'scraperwiki.php';
 require 'scraperwiki/simple_html_dom.php';
 for($pageloop = 1 ; $pageloop < 2; $pageloop++)
 {
-$page   = file_get_html('http://www.cust.edu.pk/alumni/index.php?r=alumniInfo/allalumni&AlumniInfo_sort=Ref_No&ajax=alumni-info-grid&page='.$pageloop);
+  $linkofpage ='http://www.cust.edu.pk/alumni/index.php?r=alumniInfo/allalumni&AlumniInfo_sort=Ref_No&ajax=alumni-info-grid&page='.$pageloop;
+$page   = file_get_html($linkofpage);
   if($page)
     {
       foreach($page->find("//[@id='alumni-info-grid']/table/tbody/tr")as $items)
       {
-        $num =  $items->find("td",0)->plaintext;
-        echo "$num..\n";
+        $sr_num =  $items->find("td",0)->plaintext;
+        $reg_num =  $items->find("td",1)->plaintext;
+        $name =  $items->find("td",2)->plaintext;
+        $degree =  $items->find("td",3)->plaintext;
+        $year =  $items->find("td",4)->plaintext;
+        
+        
+        			   
+$record = array( 'urlofpage' =>$linkofpage, 'sr_no' => $sr_num ,'reg_num' => $reg_num ,'name' => $name,'degree' => $degree , 'years' => $year);
+  
+ scraperwiki::save(array('urlofpage','sr_no','reg_num','name','degree','years'), $record);
+        
       }
     }
   }
