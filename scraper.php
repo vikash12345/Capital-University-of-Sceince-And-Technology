@@ -9,9 +9,10 @@ for($pageloop = 1 ; $pageloop < 2; $pageloop++)
 $page   = file_get_html('http://www.cust.edu.pk/alumni/index.php?r=alumniInfo/allalumni&AlumniInfo_sort=Ref_No&ajax=alumni-info-grid&page='.$pageloop);
   if($page)
     {
-      foreach($page->find("//*[@id='alumni-info-grid']/table/tbody/tr")as $items)
+      foreach($page->find("//*[@id='alumni-info-grid']/table/tbody/")as $items)
       {
-        
+        $num =  $item->find("/tr/td",0)->plaintext;
+        echo "$num..\n";
       }
     }
   }
