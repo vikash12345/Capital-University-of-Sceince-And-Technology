@@ -17,13 +17,13 @@ $page   = file_get_html($linkofpage);
         $name =  $items->find("td",2)->plaintext;
         $degree =  $items->find("td",3)->plaintext;
         $year =  $items->find("td",4)->plaintext;
-        
-        
-        			   
+        if($reg_num != null)
+        {
+   			   
 $record = array( 'urlofpage' =>$linkofpage, 'sr_no' => $sr_num ,'reg_num' => $reg_num ,'name' => $name,'degree' => $degree , 'years' => $year);
   
  scraperwiki::save(array('urlofpage','sr_no','reg_num','name','degree','years'), $record);
-        
+        }
       }
     }
   }
