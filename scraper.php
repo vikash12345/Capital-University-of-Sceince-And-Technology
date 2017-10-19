@@ -11,7 +11,7 @@ $page   = file_get_html('http://www.cust.edu.pk/alumni/index.php?r=alumniInfo/al
     {
       foreach($page->find("//*[@id='alumni-info-grid']/table/tbody/")as $items)
       {
-        $num =  $item->find("/tr/td",0)->plaintext;
+        $num =  $item->find("tr/td",0)->plaintext;
         echo "$num..\n";
       }
     }
