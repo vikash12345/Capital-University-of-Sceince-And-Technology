@@ -4,7 +4,7 @@
 
 require 'scraperwiki.php';
 require 'scraperwiki/simple_html_dom.php';
-for($pageloop = 1 ; $pageloop < 2; $pageloop++)
+for($pageloop = 1 ; $pageloop < 62; $pageloop++)
 {
   $linkofpage ='http://www.cust.edu.pk/alumni/index.php?r=alumniInfo/allalumni&AlumniInfo_sort=Ref_No&ajax=alumni-info-grid&page='.$pageloop;
 $page   = file_get_html($linkofpage);
