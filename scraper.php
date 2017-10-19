@@ -6,8 +6,15 @@ require 'scraperwiki.php';
 require 'scraperwiki/simple_html_dom.php';
 for($pageloop = 1 ; $pageloop < 2; $pageloop++)
 {
-echo $page   = file_get_html('http://www.cust.edu.pk/alumni/index.php?r=alumniInfo/allalumni&AlumniInfo_sort=Ref_No&ajax=alumni-info-grid&page='.$pageloop);
-}
+$page   = file_get_html('http://www.cust.edu.pk/alumni/index.php?r=alumniInfo/allalumni&AlumniInfo_sort=Ref_No&ajax=alumni-info-grid&page='.$pageloop);
+  if($page)
+    {
+      foreach($page->find("//*[@id='alumni-info-grid']/table/tbody")as $items)
+      {
+        echo $items;
+      }
+    }
+  }
   
   
 // // Read in a page
