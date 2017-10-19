@@ -2,9 +2,14 @@
 // This is a template for a PHP scraper on morph.io (https://morph.io)
 // including some code snippets below that you should find helpful
 
-// require 'scraperwiki.php';
-// require 'scraperwiki/simple_html_dom.php';
-//
+require 'scraperwiki.php';
+require 'scraperwiki/simple_html_dom.php';
+for($pageloop = 1 ; $pageloop > 3; $pageloop++)
+{
+  echo 'http://www.cust.edu.pk/alumni/index.php?r=alumniInfo/allalumni&AlumniInfo_sort=Ref_No&ajax=alumni-info-grid&page='.$pageloop;
+}
+  
+  
 // // Read in a page
 // $html = scraperwiki::scrape("http://foo.com");
 //
