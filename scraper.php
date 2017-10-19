@@ -6,7 +6,7 @@ require 'scraperwiki.php';
 require 'scraperwiki/simple_html_dom.php';
 for($pageloop = 1 ; $pageloop < 2; $pageloop++)
 {
-echo $page   = simpleget_html('http://www.cust.edu.pk/alumni/index.php?r=alumniInfo/allalumni&AlumniInfo_sort=Ref_No&ajax=alumni-info-grid&page='.$pageloop);
+echo $page   = simple_get_html('http://www.cust.edu.pk/alumni/index.php?r=alumniInfo/allalumni&AlumniInfo_sort=Ref_No&ajax=alumni-info-grid&page='.$pageloop);
 }
   
   
